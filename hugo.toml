@@ -9,7 +9,6 @@ disablePathToLower = true
 
 [params]
   description = "Nomad Development Blog"
-  copyright = "Copyright © 2024 Nomad Motors"
   dark = "auto"
   highlight = true
 

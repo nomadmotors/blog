@@ -3,4 +3,4 @@
 	url = https://github.com/theNewDynamic/gohugo-theme-ananke.git
 [submodule "themes/etch"]
 	path = themes/etch
-	url = https://github.com/LukasJoswiak/etch.git
+	url = https://github.com/nomadmotors/etch.git
