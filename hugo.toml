@@ -5,6 +5,7 @@ theme = 'etch'
 enableInlineShortcodes = true
 pygmentsCodeFences = true
 pygmentsUseClasses = true
+disablePathToLower = true
 
 [params]
   description = "Nomad Development Blog"
