@@ -1,7 +1,7 @@
 baseURL = 'https://nomadmotors.github.io/'
 languageCode = 'en-us'
 title = 'Nomad Development Blog'
-theme = 'etch'
+theme = ['etch', 'hugo-video']
 enableInlineShortcodes = true
 pygmentsCodeFences = true
 pygmentsUseClasses = true
