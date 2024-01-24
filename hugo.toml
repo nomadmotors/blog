@@ -9,7 +9,7 @@ custom_css = ["css/style.css"]
 
 [params]
   description = "Nomad Development Blog"
-  dark = "auto"
+  dark = "dark"
   highlight = true
 
 [menu]
