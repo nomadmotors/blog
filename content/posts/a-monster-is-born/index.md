@@ -3,6 +3,9 @@ title = 'A Monster is Born'
 date = 2024-01-23
 +++
 
+<link rel="stylesheet" href="/css/style.css">
+
+
 {{< video src="chomp.mp4" controls="false" muted="true" autoplay="true">}}
 
 Nomad Motor's debut device, *The Monster*, is a high performance motor controller for use in personal electric vehicles.

@@ -6,6 +6,7 @@ enableInlineShortcodes = true
 pygmentsCodeFences = true
 pygmentsUseClasses = true
 disablePathToLower = true
+custom_css = ["css/style.css"]
 
 [params]
   description = "Nomad Development Blog"

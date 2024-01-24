@@ -1,14 +1,3 @@
-pre {
-    border-radius: 1em;
-    padding: 1em;
-    margin: 0;
-    margin-bottom: 1em;
-}
-
-img, video {
-    border-radius: 1em;
-}
-
 /* Background */ .bg { color: #e6edf3; background-color: #0d1117; }
 /* PreWrapper */ .chroma { color: #e6edf3; background-color: #0d1117; }
 /* Other */ .chroma .x {  }
