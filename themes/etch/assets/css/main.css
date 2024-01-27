@@ -280,3 +280,16 @@ footer#footer {
     color: #b3b3b3;
     margin: 40px 0;
 }
+
+/* custom additions */
+
+pre {
+    border-radius: 1em;
+    padding: 1em;
+    margin: 0;
+    margin-bottom: 1em;
+}
+
+img, video {
+    border-radius: 1em;
+}

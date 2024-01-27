@@ -1,6 +1,0 @@
-[submodule "themes/hugo-video"]
-	path = themes/hugo-video
-	url = https://github.com/martignoni/hugo-video.git
-[submodule "themes/etch"]
-	path = themes/etch
-	url = https://github.com/nomadmotors/etch.git

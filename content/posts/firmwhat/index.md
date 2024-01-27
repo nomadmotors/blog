@@ -3,8 +3,6 @@ title = 'Firmwhat?'
 date = 2024-01-24
 +++
 
-<link rel="stylesheet" href="/css/style.css">
-
 Firmware development has been much of the same for decades.
 
 The stagnation of industry has resulted in overly complicated, fragile, and unmaintainable code-bases for even the simplest of applications.

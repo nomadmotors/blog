@@ -3,8 +3,6 @@ title = 'System Topology'
 date = 2024-01-27
 +++
 
-<link rel="stylesheet" href="/css/style.css">
-
 Every system has a **topology**. The high level view of what sub-systems exist and how they interact.
 
 *The Monster* will be segmented into three sub-systems:
