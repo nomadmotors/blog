@@ -1,11 +1,10 @@
-baseURL = 'https://nomadmotors.github.io/'
+baseURL = '/'
 languageCode = 'en-us'
 title = 'Nomad Development Blog'
 theme = ['etch', 'hugo-video']
 enableInlineShortcodes = true
 pygmentsCodeFences = true
 pygmentsUseClasses = true
-custom_css = ["css/style.css"]
 
 [params]
   description = "Nomad Development Blog"
