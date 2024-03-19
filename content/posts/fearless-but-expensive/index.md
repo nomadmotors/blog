@@ -167,7 +167,17 @@ mod app {
 
     #[init]
     fn init(ctx: init::Context) -> (Shared, Local) {
-        let mut rcc = ctx.device.RCC.freeze(rcc::Config::hsi(Prescaler::Div2));
+        let mut rcc = ctx
+            .device
+            .RCC
+            .freeze(rcc::Config::pll().pll_cfg(rcc::PllConfig {
+                mux: rcc::PLLSrc::HSI,
+                m: 1,
+                n: 8,
+                r: 2,
+                q: None,
+                p: None,
+            }));
         let mut exti = ctx.device.EXTI;
 
         let gpioa = ctx.device.GPIOA.split(&mut rcc);
