@@ -216,7 +216,7 @@ Let's write the top-level interface we want:
 
 ```rust
 #[task(local = [edge_dispatcher, output])]
-async fn our_task(ctx: other_task::Context) {
+async fn our_task(ctx: our_task::Context) {
     loop {
         ctx.local.edge_dispatcher.wait_for_rising_edge().await;
         ctx.local.output.set_high().ok();
@@ -462,7 +462,7 @@ mod app {
             .into_push_pull_output()
             .set_speed(Speed::VeryHigh);
 
-        other_task::spawn().ok();
+        our_task::spawn().ok();
 
         let (edge_waker, edge_dispatcher) = EDGE_DETECTOR.split();
 
@@ -491,7 +491,7 @@ mod app {
     }
 
     #[task(local = [edge_dispatcher, output])]
-    async fn other_task(ctx: other_task::Context) {
+    async fn our_task(ctx: our_task::Context) {
         loop {
             ctx.local.edge_dispatcher.wait_for_rising_edge().await;
             ctx.output.set_high().ok();
