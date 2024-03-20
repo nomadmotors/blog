@@ -22,7 +22,7 @@ In this post, we will explore the underlying mechanisms of async Rust on Embedde
 
 [Embassy](https://embassy.dev) is the up-and-coming embedded async ecosystem. It provides an executor, monotonics, HAL, sync utils, etc.
 
-Let's make a program that outputs an edge mimicing an input edge, to measure the scheduling delay.
+Let's make a program that outputs an edge mimicking an input edge, to measure the scheduling delay.
 
 ```rust
 #[embassy_executor::main]
@@ -372,7 +372,6 @@ pub fn update(&self, value: SignalEdge) {
     fence(Ordering::SeqCst);
 
     critical_section::with(|_| {
-        let x = self.parent.store.get();
         // SAFETY: in a cs: exclusive access
         unsafe { *self.parent.store.get() = MaybeUninit::new(value) };
     });
@@ -481,15 +480,13 @@ mod app {
             Local {
                 exti,
                 output,
-                led,
-                serial,
                 edge_waker,
                 edge_dispatcher,
             },
         )
     }
 
-    #[task(binds = EXTI0_1, local = [exti, edge_waker], priority = 2)]
+    #[task(binds = EXTI0_1, local = [exti, edge_waker])]
     fn detect_edge(ctx: detect_edge::Context) {
         if ctx.local.exti.is_pending(Event::GPIO1, SignalEdge::Rising) {
             ctx.local.edge_waker.update(SignalEdge::Rising);
@@ -518,6 +515,8 @@ This makes sense because we effectively _created_ the same scheduling overhead a
 
 What we've accomplished can easily be generalized as a **Signal**. A message passing structure with many writers and one reader. Replace `SignalEdge` with a generic type `T` in all previous code snippets and now this structure can be used for anything.
 
+> It's important to note that this is not equivalent to the Embassy HAL's implementation of this behavior. The interrupt is always firing whether or not we wait for it. Embassy reconfigures the EXTI for one-shot firing. With our deeper level of control, we were able to design a more appropriate structure for our use case that is slightly lower cost.
+
 > If the rapid response time of **700ns** is an application requirement, integration with async contexts should be avoided.
 
 ## Conclusion
@@ -536,4 +535,4 @@ When engaging in a rapid development cycle or are new to the Embedded field.
 
 ### Use RTIC
 
-When safety is of upmost importance.
+When safety is of utmost importance.
