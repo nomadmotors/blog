@@ -327,7 +327,7 @@ And now, we can actually provide default implementations for the functions of `S
 In order to do this, we first need to ammend `Medium` a bit to gain access to iterators of the provided buffers:
 
 ```rust
-trait Medium<E: Encoding = Vanilla> {
+trait Medium<E: Encoding> {
     const SIZE: usize;
 
     fn get_iter<'a>(&'a self) -> impl Iterator<Item = &'a E::Word>
@@ -342,7 +342,7 @@ trait Medium<E: Encoding = Vanilla> {
 Then add the default implementations:
 
 ```rust
-unsafe trait SerializeBuf<E: Encoding = Vanilla>: SerializeIter<E> {
+unsafe trait SerializeBuf<E: Encoding>: SerializeIter<E> {
     type Serialized: Medium<E>;
 
     fn serialize_buf(&self, dest: &mut Self::Serialized) {
